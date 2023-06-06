@@ -1,6 +1,5 @@
 package com.br.viniciusmaiacommerce.selltime.model;
 
-import java.util.UUID;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,8 +8,8 @@ import lombok.Setter;
 public class Product {
   private Integer id;
   private String name;
-  private Integer quantidade;
+  private Integer quantity;
   private double value;
-  private String observacao;
+  private String observation;
 
 }
