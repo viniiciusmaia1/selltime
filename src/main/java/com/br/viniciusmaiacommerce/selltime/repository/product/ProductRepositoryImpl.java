@@ -1,13 +1,12 @@
 package com.br.viniciusmaiacommerce.selltime.repository.product;
 
 import com.br.viniciusmaiacommerce.selltime.model.Product;
-import java.util.ArrayList;
+import com.br.viniciusmaiacommerce.selltime.model.exception.ResourceNotFoundException;import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
-// https://ifood.udemy.com/course/backend-completo-com-java-apirestfull-e-microsservicos/learn/lecture/28723660#overview
 @Repository
 public class ProductRepositoryImpl implements ProductRepository {
 
@@ -41,7 +40,7 @@ public class ProductRepositoryImpl implements ProductRepository {
       var optionalProduct = findById(product.getId());
 
       if (optionalProduct.isEmpty()) {
-         throw  new InputMismatchException("Produto nao encontrado.");
+         throw  new ResourceNotFoundException("Product not found.");
       }
 
       delete(product.getId());
