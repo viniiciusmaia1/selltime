@@ -1,15 +1,32 @@
 package com.br.viniciusmaiacommerce.selltime.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.br.viniciusmaiacommerce.selltime.common.GenericEntity;
+import lombok.*;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Getter
 @Setter
-public class Product {
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "products")
+public class Product implements Serializable, GenericEntity {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(nullable = false, updatable = false)
   private Integer id;
-  private String name;
-  private Integer quantity;
-  private double value;
-  private String observation;
 
+  @Column(nullable = false)
+  private String name;
+
+  @Column(nullable = false)
+  private Integer quantity;
+
+  @Column(nullable = false)
+  private double value;
+
+  @Column(columnDefinition = "text")
+  private String observation;
 }
