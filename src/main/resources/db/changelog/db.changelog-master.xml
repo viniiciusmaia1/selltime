@@ -1,0 +1,29 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+  <include file="db.changelog/db-changelog-setup.xml"/>
+
+  <include file="db.changelog/db-changelog-table-cliente.xml"/>
+
+  <property name="uuid_function" value="uuid_generate_v4()" dbms="postgresql"/>
+  <property name="uuid_type" value="uuid" dbms="postgresql"/>
+  <property name="now" value="now()" dbms="postgresql"/>
+
+  <changeSet id="create-uuid-extension" author="liquibase" dbms="postgresql">
+    <sql dbms="postgresql" endDelimiter=";">
+      CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+    </sql>
+  </changeSet>
+
+  <changeSet id="test-connection" author="liquibase" runAlways="true">
+    <sql>Select 1=1;</sql>
+  </changeSet>
+
+</databaseChangeLog>
