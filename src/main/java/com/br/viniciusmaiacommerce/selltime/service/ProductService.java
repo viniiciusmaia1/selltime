@@ -1,6 +1,6 @@
 package com.br.viniciusmaiacommerce.selltime.service;
 
-import com.br.viniciusmaiacommerce.selltime.model.Product;import com.br.viniciusmaiacommerce.selltime.repository.ProductRepository;
+import com.br.viniciusmaiacommerce.selltime.model.Product;import com.br.viniciusmaiacommerce.selltime.repository.product.ProductRepositoryImpl;
 import java.util.List;import java.util.Optional;import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class ProductService {
 
   @Autowired
-  private ProductRepository productRepository;
+  private ProductRepositoryImpl productRepository;
 
   public List<Product> findAll() {
     return productRepository.findAll();

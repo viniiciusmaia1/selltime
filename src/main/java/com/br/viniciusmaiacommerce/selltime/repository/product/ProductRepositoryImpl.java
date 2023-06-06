@@ -1,4 +1,4 @@
-package com.br.viniciusmaiacommerce.selltime.repository;
+package com.br.viniciusmaiacommerce.selltime.repository.product;
 
 import com.br.viniciusmaiacommerce.selltime.model.Product;
 import java.util.ArrayList;
@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
-//https://ifood.udemy.com/course/backend-completo-com-java-apirestfull-e-microsservicos/learn/lecture/28723660#overview
+// https://ifood.udemy.com/course/backend-completo-com-java-apirestfull-e-microsservicos/learn/lecture/28723660#overview
 @Repository
-public class ProductRepository {
+public class ProductRepositoryImpl implements ProductRepository {
 
    private ArrayList<Product> products = new ArrayList<Product>();
    private Integer lastId = 0;
