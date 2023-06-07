@@ -13,5 +13,4 @@ public class ErrorMessage {
     this.status = status;
     this.message = message;
   }
-  
 }
