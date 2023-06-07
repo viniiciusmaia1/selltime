@@ -1,18 +1,10 @@
 package com.br.viniciusmaiacommerce.selltime.repository.product;
 
 import com.br.viniciusmaiacommerce.selltime.model.Product;
-import java.util.List;
-import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface ProductRepository {
+@Repository
+public interface ProductRepository extends JpaRepository<Product, Integer> {
 
-  public List<Product> findAll();
-
-  public Optional<Product> findById(Integer productId);
-
-  public Product create(Product product);
-
-  public void delete(Integer productId);
-
-  public Product update(Product product);
 }
