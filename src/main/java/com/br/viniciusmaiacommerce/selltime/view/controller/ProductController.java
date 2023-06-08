@@ -1,4 +1,4 @@
-package com.br.viniciusmaiacommerce.selltime.controller;
+package com.br.viniciusmaiacommerce.selltime.view.controller;
 
 import com.br.viniciusmaiacommerce.selltime.model.Product;
 import com.br.viniciusmaiacommerce.selltime.service.ProductService;

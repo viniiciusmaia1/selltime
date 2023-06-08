@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Table(name = "products")
 public class Product implements Serializable, GenericEntity {
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType. AUTO)
   @Column(nullable = false, updatable = false)
   private Integer id;
 
