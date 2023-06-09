@@ -5,8 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProdutoResponse {
-  private Integer id;
+public class ProductRequest {
   private String name;
   private Integer quantity;
   private double value;

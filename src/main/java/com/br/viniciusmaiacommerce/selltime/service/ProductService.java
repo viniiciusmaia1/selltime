@@ -8,13 +8,18 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Service;
 
 @Service
+@EnableAutoConfiguration
 public class ProductService {
 
-  @Autowired private ProductRepository productRepository;
+  private final ProductRepository productRepository;
+
+  public ProductService(ProductRepository productRepository) {
+    this.productRepository = productRepository;
+  }
 
   public List<ProductDTO> findAll() {
 
@@ -56,18 +61,23 @@ public class ProductService {
   public void delete(Integer productId) {
     Optional<Product> product = productRepository.findById(productId);
 
-    if(product.isEmpty()) {
+    if (product.isEmpty()) {
       throw new ResourceNotFoundException("Product with id: " + productId + " not found.");
     }
 
-    
-
+    productRepository.deleteById(productId);
   }
 
-  public ProductDTO update(Integer productId, ProductDTO product) {
+  public ProductDTO update(Integer productId, ProductDTO productDTO) {
 
-    product.setId(productId);
+    productDTO.setId(productId);
 
-    return productRepository.save(product);
+    ModelMapper mapper = new ModelMapper();
+
+    Product product = mapper.map(productDTO, Product.class);
+
+    productRepository.save(product);
+
+    return productDTO;
   }
 }
